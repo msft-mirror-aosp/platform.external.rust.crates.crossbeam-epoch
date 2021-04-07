@@ -2,21 +2,6 @@
 {
   "presubmit": [
     {
-      "name": "crossbeam-deque_device_test_tests_lifo"
-    },
-    {
-      "name": "crossbeam-deque_device_test_src_lib"
-    },
-    {
-      "name": "crossbeam-deque_device_test_tests_injector"
-    },
-    {
-      "name": "crossbeam-deque_device_test_tests_fifo"
-    },
-    {
-      "name": "crossbeam-deque_device_test_tests_steal"
-    },
-    {
       "name": "crossbeam-epoch_device_test_src_lib"
     }
   ]
