@@ -3,6 +3,9 @@
   "presubmit": [
     {
       "name": "crossbeam-epoch_device_test_src_lib"
+    },
+    {
+      "name": "crossbeam-epoch_device_test_tests_loom"
     }
   ]
 }
