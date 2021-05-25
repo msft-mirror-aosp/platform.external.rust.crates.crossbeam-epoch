@@ -136,10 +136,10 @@ rust_library {
 // dependent_library ["feature_list"]
 //   autocfg-1.0.1
 //   cfg-if-1.0.0
-//   crossbeam-utils-0.8.3 "lazy_static,std"
+//   crossbeam-utils-0.8.4 "lazy_static,std"
 //   getrandom-0.2.2 "std"
 //   lazy_static-1.4.0
-//   libc-0.2.92
+//   libc-0.2.94
 //   memoffset-0.6.3 "default"
 //   ppv-lite86-0.2.10 "simd,std"
 //   rand-0.8.3 "alloc,default,getrandom,libc,rand_chacha,rand_hc,std,std_rng"
