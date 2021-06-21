@@ -13,7 +13,7 @@
 [package]
 edition = "2018"
 name = "crossbeam-epoch"
-version = "0.9.4"
+version = "0.9.5"
 authors = ["The Crossbeam Project Developers"]
 description = "Epoch-based garbage collection"
 homepage = "https://github.com/crossbeam-rs/crossbeam/tree/master/crossbeam-epoch"
@@ -30,7 +30,7 @@ version = "0.4.4"
 optional = true
 
 [dependencies.crossbeam-utils]
-version = "0.8.4"
+version = "0.8.5"
 default-features = false
 
 [dependencies.lazy_static]
