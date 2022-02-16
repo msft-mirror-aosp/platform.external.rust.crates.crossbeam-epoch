@@ -62,7 +62,8 @@
     unreachable_pub
 )]
 #![cfg_attr(not(feature = "std"), no_std)]
-#![cfg_attr(feature = "nightly", feature(const_fn_trait_bound))]
+#![cfg_attr(feature = "nightly", feature(cfg_target_has_atomic))]
+#![cfg_attr(feature = "nightly", feature(const_fn))]
 
 #[cfg(crossbeam_loom)]
 extern crate loom_crate as loom;
@@ -104,11 +105,10 @@ mod primitive {
     pub(crate) use loom::lazy_static;
     pub(crate) use loom::thread_local;
 }
-#[cfg(not(crossbeam_no_atomic_cas))]
 #[cfg(not(crossbeam_loom))]
 #[allow(unused_imports, dead_code)]
 mod primitive {
-    #[cfg(feature = "alloc")]
+    #[cfg(any(feature = "alloc", feature = "std"))]
     pub(crate) mod cell {
         #[derive(Debug)]
         #[repr(transparent)]
@@ -136,13 +136,14 @@ mod primitive {
             }
         }
     }
-    #[cfg(feature = "alloc")]
+    #[cfg(any(feature = "alloc", feature = "std"))]
     pub(crate) mod sync {
         pub(crate) mod atomic {
             pub(crate) use core::sync::atomic::compiler_fence;
             pub(crate) use core::sync::atomic::fence;
             pub(crate) use core::sync::atomic::AtomicUsize;
         }
+        #[cfg_attr(feature = "nightly", cfg(target_has_atomic = "ptr"))]
         pub(crate) use alloc::sync::Arc;
     }
 
@@ -153,7 +154,7 @@ mod primitive {
     pub(crate) use lazy_static::lazy_static;
 }
 
-#[cfg(not(crossbeam_no_atomic_cas))]
+#[cfg_attr(feature = "nightly", cfg(target_has_atomic = "ptr"))]
 cfg_if! {
     if #[cfg(feature = "alloc")] {
         extern crate alloc;
