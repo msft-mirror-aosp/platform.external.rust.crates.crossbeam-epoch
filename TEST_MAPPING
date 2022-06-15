@@ -17,11 +17,6 @@
       "path": "external/rust/crates/unicode-xid"
     }
   ],
-  "postsubmit": [
-    {
-      "name": "crossbeam-epoch_test_src_lib"
-    }
-  ],
   "presubmit": [
     {
       "name": "crossbeam-epoch_test_src_lib"
